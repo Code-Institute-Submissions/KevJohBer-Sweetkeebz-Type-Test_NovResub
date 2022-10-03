@@ -23,10 +23,8 @@ header h1 {
 
 #text-area p {
     width: 70vw;
-    height: 300px;
     font-family: 'cabin', sans-serif;
-    font-size: 2rem;
-    background-color: blue;
+    font-size: 3rem;
 }
 
 #result-area {
