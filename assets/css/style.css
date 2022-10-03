@@ -3,3 +3,34 @@ body {
     text-align: center;
     color: white;
 }
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'jaldi', sans-serif;
+}
+
+header h1 {
+    font-size: 5vw;
+}
+
+#text-area {
+    display: flex;
+    justify-content: center;
+    align-content: center;   
+}
+
+#text-area p {
+    width: 70vw;
+    height: 300px;
+    font-family: 'cabin', sans-serif;
+    font-size: 2rem;
+    background-color: blue;
+}
+
+#result-area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
