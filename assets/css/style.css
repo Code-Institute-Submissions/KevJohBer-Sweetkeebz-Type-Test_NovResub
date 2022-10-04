@@ -43,6 +43,7 @@ header h1 {
 
 .correct {
     color: black;
+    transition: 0,2s;
 }
 
 .incorrect {
@@ -63,4 +64,9 @@ header h1 {
 #paragraph span.active::after {
     right: 0;
     transition: 0,2s;
+}
+
+input {
+    opacity: 0;
+    position: absolute;
 }

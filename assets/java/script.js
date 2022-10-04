@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', generateRandomWord)
+document.addEventListener('DOMContentLoaded', generateRandomWord,)
 
 textDisplayElement = document.getElementById('paragraph')
 
@@ -34,12 +34,21 @@ async function generateNewRandomWord() {
 function initTyping() {
     let characters = textDisplayElement.querySelectorAll('span');
     let typedChar = inputField.value.split('')[charIndex]
-    if(characters[charIndex].innerText === typedChar) {
-        characters[charIndex].classList.add('correct')     
+
+    if (typedChar == null) {
+        charIndex--;
+        characters[charIndex].classList.remove('correct', 'incorrect')
     } else {
-        characters[charIndex].classList.add('incorrect')
+       if(characters[charIndex].innerText === typedChar) {
+        characters[charIndex].classList.add('correct')     
+        } 
+        else {
+            characters[charIndex].classList.add('incorrect')
+        }
+    charIndex++; 
     }
-    charIndex++;
+
+    
 
     characters.forEach(span => span.classList.remove('active'))
     characters[charIndex].classList.add('active')
