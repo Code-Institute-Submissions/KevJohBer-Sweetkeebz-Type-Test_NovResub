@@ -15,20 +15,52 @@ header h1 {
     font-size: 5vw;
 }
 
-#text-area {
+.text-area {
     display: flex;
     justify-content: center;
     align-content: center;   
 }
 
-#text-area p {
+.text-area p {
     width: 70vw;
     font-family: 'cabin', sans-serif;
     font-size: 3rem;
+    border-style: none;
+    background-color: bisque;
+    color: white;
+    text-align: center;
 }
 
 #result-area {
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+#paragraph span{
+    position: relative;
+}
+
+.correct {
+    color: black;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
+
+#paragraph span.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 3.5px;
+    background: white
+}
+
+#paragraph span.active::after {
+    right: 0;
+    transition: 0,2s;
 }
