@@ -5,11 +5,18 @@ let textArea = document.querySelector('.text-area');
 let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span')
 let correctTag = document.querySelector('.correct span')
+let timeTag = document.querySelector('.time')
+
+let timer,
+maxTime = 30,
+timeLeft = maxTime
+
 
 let charIndex = 0;
 let mistakes = 0
 let corrects = 0
 let wpm = 0
+let isTyping = 0
 
 /**
  * generates a paragraph of text 
@@ -17,7 +24,7 @@ let wpm = 0
 function generateRandomWord (){
     let text = ''
     let words = ['you ', "don't ", 'feel ', 'so ', 'far ', 'away ', 'well ', 'I ', 'was ', 'cruising ', 'down ', 'the ', 'street ', 'we ', 'will ', 'be ', 'alright ', 'man ', 'used ', 'to ', 'stay ', 'awake ', 'all ', 'night ', 'and ', 'wonder ', 'if ', 'worth ', 'fight ']
-    for (i = 0; i < 50; i++) {
+    for (i = 0; i < 150; i++) {
         text += words[Math.floor(Math.random() * words.length)]
     }   
     return text
@@ -37,13 +44,17 @@ async function generateNewRandomWord() {
     textDisplayElement.addEventListener('click', () => inputField.focus())
 }
 
-
 /**
  * Checks if input is correct or incorrect
  */
 function initTyping() {
     let characters = textDisplayElement.querySelectorAll('span');
     let typedChar = inputField.value.split('')[charIndex]
+    if(!isTyping){
+        timer = setInterval(initTimer, 1500)
+        isTyping = true;
+    }
+    
 
     if (typedChar == null) {
         charIndex--;
@@ -59,13 +70,20 @@ function initTyping() {
             mistakeTag.innerText = mistakes
             characters[charIndex].classList.add('incorrect')
         }
-    charIndex++; 
+    charIndex++;
     }
-
-    
 
     characters.forEach(span => span.classList.remove('active'))
     characters[charIndex].classList.add('active')
+}
+
+function initTimer(){
+    if(timeLeft > 0) {
+        timeLeft--;
+        timeTag.innerText = timeLeft;
+    } else {
+        clearInterval(timer);
+    }
 }
 
 generateNewRandomWord()
