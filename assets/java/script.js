@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', generateRandomWord,)
-
 textDisplayElement = document.getElementById('paragraph');
 let textArea = document.querySelector('.text-area');
 let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span')
 let correctTag = document.querySelector('.correct span')
 let timeTag = document.querySelector('.time')
+let restart = document.querySelector('.fa-solid fa-arrows-rotate')
+document.querySelector('.time').textContent = '30'
 
 let timer,
 maxTime = 30,
@@ -83,10 +83,21 @@ function initTimer(){
         timeTag.innerText = timeLeft;
     } else {
         clearInterval(timer);
+        inputField.disabled = true
+        generateRandomWord()
     }
 }
 
+function startOver(){
+    textWindow = document.querySelector('#paragraph');
+    textWindow.innerHTML = ''
+    generateNewRandomWord()
+    initTyping().break
+}
+
+document.querySelector('button').addEventListener('keydown', function(){
+    startOver()
+})
+
 generateNewRandomWord()
 inputField.addEventListener('input', initTyping);
-
-document.getElementsByTagName('button')[0].addEventListener('submit', refreshPage)
