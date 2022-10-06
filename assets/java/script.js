@@ -17,8 +17,7 @@ let charIndex = 0;
 let mistakes = 0
 let corrects = 0
 let wpm = 0
-let isTyping = 0
-let type = false
+let isTyping = false
 
 /**
  * generates a paragraph of text 
@@ -33,12 +32,12 @@ function generateRandomWord (){
 }
 
 /**
- * Waits for a paragraph of text and makes spans out of the letters
+ * Waits for a paragraph of text and makes span copies out of the letters.
  */
-async function generateNewRandomWord() {
+function generateNewRandomWord() {
     textDisplayElement.innerHTML = ''
     let paragraph = generateRandomWord()
-    paragraph.split('').forEach(character => {
+    paragraph.split('').forEach(function(character) {
         let textSpan = document.createElement('span')
         textSpan.innerText = character
         textDisplayElement.appendChild(textSpan) 
@@ -53,11 +52,10 @@ async function generateNewRandomWord() {
 function initTyping() {
     let characters = textDisplayElement.querySelectorAll('span');
     let typedChar = inputField.value.split('')[charIndex]
-    if(!isTyping){
+    if(isTyping == false){
         timer = setInterval(initTimer, 1500)
         isTyping = true;
-    }
-    
+    }   
 
     if (typedChar == null) {
         charIndex--;
@@ -75,10 +73,12 @@ function initTyping() {
         }
     charIndex++;
     }
-    characters.forEach(span => span.classList.remove('active'))
+    characters.forEach(function(span) {
+        span.classList.remove('active')
+    })
     characters[charIndex].classList.add('active')
 
-    wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60)
+    wpm = Math.round(((charIndex / 5) - mistakes) - 0.5)
     wpmTag.innerText = wpm
 }
 
@@ -89,7 +89,6 @@ function initTimer(){
     } else {
         clearInterval(timer);
         inputField.disabled = true
-        generateRandomWord()
     }
 }
 
