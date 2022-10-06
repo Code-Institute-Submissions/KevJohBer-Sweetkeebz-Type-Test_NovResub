@@ -4,11 +4,12 @@ let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span')
 let correctTag = document.querySelector('.correct span')
 let timeTag = document.querySelector('.time')
-let restart = document.querySelector('.fa-solid fa-arrows-rotate')
+let wpmTag = document.querySelector('.wpm span')
+let restart = document.querySelector('button')
 document.querySelector('.time').textContent = '30'
 
 let timer,
-maxTime = 30,
+maxTime = 30
 timeLeft = maxTime
 
 
@@ -17,6 +18,7 @@ let mistakes = 0
 let corrects = 0
 let wpm = 0
 let isTyping = 0
+let type = false
 
 /**
  * generates a paragraph of text 
@@ -34,6 +36,7 @@ function generateRandomWord (){
  * Waits for a paragraph of text and makes spans out of the letters
  */
 async function generateNewRandomWord() {
+    textDisplayElement.innerHTML = ''
     let paragraph = generateRandomWord()
     paragraph.split('').forEach(character => {
         let textSpan = document.createElement('span')
@@ -72,9 +75,11 @@ function initTyping() {
         }
     charIndex++;
     }
-
     characters.forEach(span => span.classList.remove('active'))
     characters[charIndex].classList.add('active')
+
+    wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 30)
+    wpmTag.innerText = wpm
 }
 
 function initTimer(){
@@ -88,16 +93,20 @@ function initTimer(){
     }
 }
 
-function startOver(){
-    textWindow = document.querySelector('#paragraph');
-    textWindow.innerHTML = ''
-    generateNewRandomWord()
-    initTyping().break
+function weeDoo(){
+    generateNewRandomWord();
+    inputField.value = ''
+    clearInterval(timer)
+    timeLeft = maxTime
+    charIndex = 0
+    mistakes = 0
+    isTyping = 0
+    timeTag.innerHTML = maxTime
+    mistakeTag.innerText = 0
+    wpmTag.innerText = 0
+    correctTag.innerText = 0
 }
-
-document.querySelector('button').addEventListener('keydown', function(){
-    startOver()
-})
 
 generateNewRandomWord()
 inputField.addEventListener('input', initTyping);
+restart.addEventListener('keydown', weeDoo)
