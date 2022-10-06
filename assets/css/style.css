@@ -90,10 +90,23 @@ input {
     color: white;
 }
 
-#result-area {
-}
-
 ul {
     display: flex;
     list-style: none;
+    align-items: space-between;
+    padding: 0;
+    width: 50%;
+    justify-content: center;
+}
+
+#result-area li{
+    width: 30%;
+    color: white;
+    font-size: 2.5rem;
+    font-family: 'cabin', sans-serif;
+    text-decoration: none;
+}
+
+li p {
+    margin-bottom: 0;
 }

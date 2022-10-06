@@ -78,7 +78,7 @@ function initTyping() {
     characters.forEach(span => span.classList.remove('active'))
     characters[charIndex].classList.add('active')
 
-    wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 30)
+    wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60)
     wpmTag.innerText = wpm
 }
 
