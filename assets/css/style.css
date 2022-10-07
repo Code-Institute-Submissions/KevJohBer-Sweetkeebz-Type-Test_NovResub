@@ -1,7 +1,7 @@
 body {
-    background: bisque;
+    background: #c5b29a;
     text-align: center;
-    color: white;
+    color: #4a4a4a;
 }
 
 header{
@@ -26,7 +26,7 @@ header h1 {
     width: 70vw;
     font-family: 'cabin', sans-serif;
     font-size: 2rem;
-    color: white;
+    color: #4a4a4a;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@ header h1 {
 }
 
 .correct {
-    color: #d6b893;
+    color: rgb(100, 44, 4);
     transition: 0,2s;
 }
 
@@ -57,7 +57,7 @@ header h1 {
     bottom: 0;
     height: 100%;
     width: 3.5px;
-    background: white
+    background: #4a4a4a
 }
 
 #paragraph span.active::after {
@@ -83,24 +83,24 @@ input {
 
 .ui button {
     font-size: 32px;
-    background-color: bisque;
+    background-color: #c5b29a;
     border: none;
-    color: white;
+    color: #4a4a4a;
 }
 
 .ui button:hover {
     font-size: 32px;
-    background-color: white;
+    background-color: #4a4a4a;
     border: none;
-    color: bisque;
+    color: #c5b29a;
     border-radius: 3px;
 }
 
 .ui button:focus {
     font-size: 32px;
-    background-color: white;
+    background-color: #4a4a4a;
     border-style: none;
-    color: bisque;
+    color: #c5b29a;
     border-radius: 3px;
 }
 
@@ -115,7 +115,7 @@ ul {
 
 #result-area li{
     width: 30%;
-    color: white;
+    color: #4a4a4a;
     font-size: 2.5rem;
     font-family: 'cabin', sans-serif;
     text-decoration: none;

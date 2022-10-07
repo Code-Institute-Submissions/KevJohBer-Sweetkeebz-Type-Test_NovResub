@@ -92,19 +92,22 @@ function initTimer(){
     }
 }
 
-function weeDoo(){
+function weeDoo(){    
     generateNewRandomWord();
-    inputField.value = ''
-    clearInterval(timer)
+    inputField.value = '';
+    clearInterval(timer);
     timeLeft = maxTime
     charIndex = 0
     mistakes = 0
-    isTyping = 0
-    timeTag.innerHTML = maxTime
-    mistakeTag.innerText = 0
+    corrects = 0
+    wpm = 0
+    isTyping = false
+    timeTag.innerHTML = timeLeft
+    mistakeTag.innerText = mistakes
     wpmTag.innerText = 0
     correctTag.innerText = 0
     inputField.disabled = false
+    
 }
 
 generateNewRandomWord()
