@@ -24,7 +24,7 @@ let isTyping = false
  * */
 function generateRandomWord (){
     let text = ''
-    let words = ['you ', "don't ", 'feel ', 'so ', 'far ', 'away ', 'well ', 'I ', 'was ', 'cruising ', 'down ', 'the ', 'street ', 'we ', 'will ', 'be ', 'alright ', 'man ', 'used ', 'to ', 'stay ', 'awake ', 'all ', 'night ', 'and ', 'wonder ', 'if ', 'worth ', 'fight ']
+    let words = ['you ', "don't ", 'feel ', 'so ', 'far ', 'away ', 'well ', 'I ', 'was ', 'cruising ', 'down ', 'the ', 'street ', 'we ', 'will ', 'be ', 'alright ', 'man ', 'used ', 'to ', 'stay ', 'awake ', 'all ', 'night ', 'and ', 'wonder ', 'if ', 'worth ', 'fight ', 'Sweden ', 'India ', 'November ']
     for (i = 0; i < 150; i++) {
         text += words[Math.floor(Math.random() * words.length)]
     }   
@@ -78,7 +78,7 @@ function initTyping() {
     })
     characters[charIndex].classList.add('active')
 
-    wpm = Math.round((corrects / 5) / 1)
+    wpm = Math.round((((charIndex - mistakes) / 5) /(60 - timeLeft * 2)) * 60)
     wpmTag.innerText = wpm
 }
 
