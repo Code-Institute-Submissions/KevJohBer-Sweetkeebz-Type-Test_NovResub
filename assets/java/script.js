@@ -104,7 +104,7 @@ function weeDoo(){
     mistakeTag.innerText = 0
     wpmTag.innerText = 0
     correctTag.innerText = 0
-    inputField.focus()
+    inputField.disabled = false
 }
 
 generateNewRandomWord()
