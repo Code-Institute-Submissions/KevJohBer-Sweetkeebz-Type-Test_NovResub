@@ -78,7 +78,7 @@ function initTyping() {
     })
     characters[charIndex].classList.add('active')
 
-    wpm = Math.round(((charIndex / 5) - mistakes) - 0.5)
+    wpm = Math.round((corrects / 5) / 1)
     wpmTag.innerText = wpm
 }
 
@@ -104,8 +104,15 @@ function weeDoo(){
     mistakeTag.innerText = 0
     wpmTag.innerText = 0
     correctTag.innerText = 0
+    inputField.focus()
 }
 
 generateNewRandomWord()
 inputField.addEventListener('input', initTyping);
-restart.addEventListener('keydown', weeDoo)
+restart.addEventListener('keydown', e => {
+    if (e.keyCode === 13) {
+    weeDoo()
+    } else {
+    inputField.focus()
+    }
+})
