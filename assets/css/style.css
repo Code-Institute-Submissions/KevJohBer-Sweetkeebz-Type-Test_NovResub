@@ -8,11 +8,12 @@ header{
     width: 100%;
     display: flex;
     justify-content: center;
-    font-family: 'jaldi', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    padding: 30px 0;
 }
 
 header h1 {
-    font-size: 5vw;
+    font-size: 3rem;
     margin: 0;
 }
 
@@ -23,11 +24,11 @@ header h1 {
 }
 
 .text-area p {
-    width: 70vw;
-    font-family: 'cabin', sans-serif;
-    font-size: 2rem;
+    width: 70%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.7rem;
     color: #4a4a4a;
-    text-align: center;
+    padding-top: 8vw;
 }
 
 #result-area {
@@ -36,13 +37,14 @@ header h1 {
     width: 100%;
 }
 
+
 #paragraph span{
     position: relative;
+    transition: 0.5s;
 }
 
 .correct {
     color: rgb(100, 44, 4);
-    transition: 0,2s;
 }
 
 .incorrect {
@@ -50,20 +52,11 @@ header h1 {
     text-decoration: underline;
 }
 
-#paragraph span.active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    width: 3.5px;
-    background: #4a4a4a
+.active {
+    background: bisque;
+    border-radius: 2px;
 }
 
-#paragraph span.active::after {
-    right: 0;
-    transition: 0,2s;
-}
 
 input {
     opacity: 0;
@@ -77,7 +70,7 @@ input {
 
 .ui p {
     font-size: 32px;
-    font-family: 'cabin', sans-serif;
+    font-family:'Roboto Mono', monospace;
     margin: 0;
 }
 
@@ -116,8 +109,8 @@ ul {
 #result-area li{
     width: 30%;
     color: #4a4a4a;
-    font-size: 2.5rem;
-    font-family: 'cabin', sans-serif;
+    font-size: 2rem;
+    font-family: 'Roboto Mono', monospace;
     text-decoration: none;
 }
 
