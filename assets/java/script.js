@@ -78,7 +78,7 @@ function initTyping() {
     })
     characters[charIndex].classList.add('active')
 
-    wpm = Math.round((((charIndex - mistakes) / 5) /(60 - timeLeft * 2)) * 60)
+    wpm = Math.round(((corrects) / 5) * 1.3)
     wpmTag.innerText = wpm
 }
 
