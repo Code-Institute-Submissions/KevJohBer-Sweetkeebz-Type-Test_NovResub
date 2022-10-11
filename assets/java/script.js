@@ -44,12 +44,13 @@ function generateNewRandomWord() {
     })
     document.addEventListener('keydown', () => inputField.focus())
     textDisplayElement.addEventListener('click', () => inputField.focus())
+    
 }
 
 /**
  * Checks if input is correct or incorrect
  */
-function initTyping() {
+function initTyping() {   
     let characters = textDisplayElement.querySelectorAll('span');
     let typedChar = inputField.value.split('')[charIndex]
     if(isTyping == false){
@@ -79,9 +80,13 @@ function initTyping() {
     characters[charIndex].classList.add('active')
 
     wpm = Math.round(((corrects) / 5) * 1.3)
-    wpmTag.innerText = wpm
+    wpmTag.innerText = wpm 
 }
 
+/**
+ * decrements the time left variable and disables the input field
+ * when the time runs out
+ */
 function initTimer(){
     if(timeLeft > 0) {
         timeLeft--;
@@ -92,6 +97,10 @@ function initTimer(){
     }
 }
 
+/**
+ * generates a new paragraph on the page and resets all varables as well as enables
+ * input field again
+ */
 function weeDoo(){    
     generateNewRandomWord();
     inputField.value = '';
