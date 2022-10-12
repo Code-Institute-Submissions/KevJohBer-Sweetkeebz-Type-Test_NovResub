@@ -26,3 +26,10 @@ Below the timer and restart section, you can see three symbols. First to the lef
 
 ## Testing
 
+### Validator testing
+* HTML 
+    * The website HTML passed the official W3C validator
+* CSS
+    * CSS passed the jigsaw validator
+* JavaScript
+    * JS code passed the JShint validator. It does not like the 'let' keyword however.

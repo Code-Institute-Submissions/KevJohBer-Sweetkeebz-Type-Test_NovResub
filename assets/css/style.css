@@ -100,7 +100,6 @@ input {
 ul {
     display: flex;
     list-style: none;
-    align-items: space-between;
     padding: 0;
     width: 50%;
     justify-content: center;
