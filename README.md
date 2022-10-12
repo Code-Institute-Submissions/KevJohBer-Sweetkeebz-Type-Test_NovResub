@@ -33,3 +33,24 @@ Below the timer and restart section, you can see three symbols. First to the lef
     * CSS passed the jigsaw validator
 * JavaScript
     * JS code passed the JShint validator. It does not like the 'let' keyword however.
+
+## Unfixed bugs
+
+* When the page loads the first character does not get highlighted
+* The page does not scroll to the current character which makes it difficult for mobile users to complete the test
+
+## Deployment
+
+* The website was deployed to Git Hub pages.
+    * In the Git Hub repository, navigate to the Settings tab
+    * From the source section drop-down menu, select the Master Branch
+    * Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+The live link can be found here: https://kevjohber.github.io/Sweetkeebz-Type-Test/
+## Credits
+
+* Making the paragraph responsive and react to keypresses aswell as checking correct and incorrect input was taken from [Typing Speed Test Game in HTML CSS & JavaScript](https://www.youtube.com/watch?v=Hg80AjDNnJk)
+
+* The design was Inspired by [Monkeytype](https://monkeytype.com/)
+
+* Icons in the restart and result area are taken from [Font Awesome](https://fontawesome.com/)
