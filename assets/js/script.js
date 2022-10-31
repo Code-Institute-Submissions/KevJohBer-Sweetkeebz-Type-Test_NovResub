@@ -1,4 +1,4 @@
-let textDisplayElement = document.getElementById('paragraph');
+let textDisplayElement = document.querySelector('.paragraph1, .paragraph2, .paragraph3');
 let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span');
 let correctTag = document.querySelector('.correct span');
@@ -22,25 +22,26 @@ let isTyping = false;
  * generates a paragraph of text 
  * */
 function generateRandomWord (){
+    textDisplayElement.innerHTML = '';
     let text = '';
     let words = ['you ', "don't ", 'feel ', 'so ', 'far ', 'away ', 'well ', 'I ', 'was ', 'cruising ', 'down ', 'the ', 'street ', 'we ', 'will ', 'be ', 'alright ', 'man ', 'used ', 'to ', 'stay ', 'awake ', 'all ', 'night ', 'and ', 'wonder ', 'if ', 'worth ', 'fight ', 'Sweden ', 'India ', 'November '];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 14; i++) {
         text += words[Math.floor(Math.random() * words.length)];
     }   
     return text;
 }
 
 /**
- * Waits for a paragraph of text and makes span copies out of the letters.
+ * Splits the letters in the text and makes spans out of them.
  */
 function generateNewRandomWord() {
-    textDisplayElement.innerHTML = '';
     let paragraph = generateRandomWord();
     paragraph.split('').forEach(function(character) {
         let textSpan = document.createElement('span');
         textSpan.innerText = character;
         textDisplayElement.appendChild(textSpan);
     });
+
     document.addEventListener('keydown', function() {
         inputField.focus();
     });
