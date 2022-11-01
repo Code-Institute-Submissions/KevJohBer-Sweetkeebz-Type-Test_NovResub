@@ -35,7 +35,7 @@ header h1 {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.7rem;
     color: #4a4a4a;
-    padding-top: 8vw;
+    margin: 0;
 }
 
 .correct {

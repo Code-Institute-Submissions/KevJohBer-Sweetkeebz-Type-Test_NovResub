@@ -1,4 +1,6 @@
-let textDisplayElement = document.querySelector('.paragraph1, .paragraph2, .paragraph3');
+let textRow1 = document.querySelector('.paragraph1');
+let textRow2 = document.querySelector('.paragraph2');
+let textRow3 = document.querySelector('.paragraph3')
 let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span');
 let correctTag = document.querySelector('.correct span');
@@ -10,19 +12,16 @@ document.querySelector('.time').textContent = '30';
 let timer,
 maxTime = 30;
 let timeLeft = maxTime;
-
-
-let charIndex = 0;
 let mistakes = 0;
 let corrects = 0;
 let wpm = 0;
 let isTyping = false;
+let charIndex = 0;
 
 /**
  * generates a paragraph of text 
  * */
 function generateRandomWord (){
-    textDisplayElement.innerHTML = '';
     let text = '';
     let words = ['you ', "don't ", 'feel ', 'so ', 'far ', 'away ', 'well ', 'I ', 'was ', 'cruising ', 'down ', 'the ', 'street ', 'we ', 'will ', 'be ', 'alright ', 'man ', 'used ', 'to ', 'stay ', 'awake ', 'all ', 'night ', 'and ', 'wonder ', 'if ', 'worth ', 'fight ', 'Sweden ', 'India ', 'November '];
     for (let i = 0; i < 14; i++) {
@@ -32,35 +31,32 @@ function generateRandomWord (){
 }
 
 /**
- * Splits the letters in the text and makes spans out of them.
+ * Takes in randomized text and turns the letters into spans.
  */
-function generateNewRandomWord() {
+function generateRow(row) {
+    row.innerHTML = ''
     let paragraph = generateRandomWord();
     paragraph.split('').forEach(function(character) {
         let textSpan = document.createElement('span');
         textSpan.innerText = character;
-        textDisplayElement.appendChild(textSpan);
+        row.appendChild(textSpan);
     });
 
     document.addEventListener('keydown', function() {
         inputField.focus();
     });
-    textDisplayElement.addEventListener('click', function() {
+    row.addEventListener('click', function() {
         inputField.focus();
     });
     
 }
 
 /**
- * Checks if input is correct or incorrect
+ * Counts correct/incorrect input and keeps track of words per minute.
  */
-function initTyping() {   
-    let characters = textDisplayElement.querySelectorAll('span');
+function initTyping(row) {
+    let characters = row.querySelectorAll('span');
     let typedChar = inputField.value.split('')[charIndex];
-    if(isTyping == false){
-        timer = setInterval(initTimer, 1500);
-        isTyping = true;
-    }  
 
     if (typedChar == null) {
         charIndex--;
@@ -76,8 +72,20 @@ function initTyping() {
             mistakeTag.innerText = mistakes;
             characters[charIndex].classList.add('incorrect');
         }
+
     charIndex++;
-    }
+    return row
+}
+
+if (charIndex == 10) {
+    charIndex = 0
+    initTyping(textRow2)
+}
+ 
+
+      
+
+
     characters.forEach(function(span) {
         span.classList.remove('active');
     });
@@ -86,6 +94,7 @@ function initTyping() {
 
     wpm = Math.round(((corrects) / 5) * 1.3);
     wpmTag.innerText = wpm; 
+    
 }
 
 /**
@@ -93,6 +102,12 @@ function initTyping() {
  * when the time runs out
  */
 function initTimer(){
+
+    if(isTyping == false){
+        timer = setInterval(initTimer, 1500);
+        isTyping = true;
+    }  
+
     if(timeLeft > 0) {
         timeLeft--;
         timeTag.innerText = timeLeft;
@@ -107,7 +122,9 @@ function initTimer(){
  * input field again
  */
 function weeDoo(){    
-    generateNewRandomWord();
+    generateRow(textRow1);
+    generateRow(textRow2);
+    generateRow(textRow3);
     inputField.value = '';
     clearInterval(timer);
     timeLeft = maxTime;
@@ -124,16 +141,20 @@ function weeDoo(){
     
 }
 
-generateNewRandomWord();
-inputField.addEventListener('input', initTyping);
-restart.addEventListener('keydown', function(event) {
-    if (event.keyCode === 13) {
+generateRow(textRow1);
+generateRow(textRow2);
+generateRow(textRow3);
+
+inputField.addEventListener('input', () => {initTyping(textRow1)});
+
+restart.addEventListener('keydown', (e) => {
+    if (e.keyCode === 13) {
     weeDoo();
     } else {
     inputField.focus();
     }
 });
-restart.addEventListener('click', function() {
+restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
 });
