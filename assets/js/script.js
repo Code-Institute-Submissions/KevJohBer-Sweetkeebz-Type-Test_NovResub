@@ -1,12 +1,12 @@
-let textRow1 = document.querySelector('.paragraph1');
-let textRow2 = document.querySelector('.paragraph2');
-let textRow3 = document.querySelector('.paragraph3')
+let rows = document.querySelectorAll('.text-area p')
 let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span');
 let correctTag = document.querySelector('.correct span');
 let timeTag = document.querySelector('.time');
 let wpmTag = document.querySelector('.wpm span');
 let restart = document.querySelector('button');
+let textArea = document.querySelector('.text-area')
+
 document.querySelector('.time').textContent = '30';
 
 let timer,
@@ -54,8 +54,8 @@ function generateRow(row) {
 /**
  * Counts correct/incorrect input and keeps track of words per minute.
  */
-function initTyping(row) {
-    let characters = row.querySelectorAll('span');
+function initTyping() {
+    let characters = textArea.querySelectorAll('span')
     let typedChar = inputField.value.split('')[charIndex];
 
     if (typedChar == null) {
@@ -72,19 +72,25 @@ function initTyping(row) {
             mistakeTag.innerText = mistakes;
             characters[charIndex].classList.add('incorrect');
         }
-
     charIndex++;
-    return row
+    if (charIndex == rows[0].querySelectorAll('span').length) {appendRow()}
+    document.querySelector('h1').innerHTML = charIndex
 }
 
-if (charIndex == 10) {
-    charIndex = 0
-    initTyping(textRow2)
-}
- 
 
-      
 
+/**
+ * Removes top row and appends a bottom row.
+ * 
+ */
+function appendRow(){
+    textArea.removeChild(rows[0]);
+    let newRow = document.createElement('p');
+    textArea.appendChild(newRow);
+    generateRow(newRow);
+    charIndex = 0;
+    initTyping()
+}   
 
     characters.forEach(function(span) {
         span.classList.remove('active');
@@ -122,9 +128,9 @@ function initTimer(){
  * input field again
  */
 function weeDoo(){    
-    generateRow(textRow1);
-    generateRow(textRow2);
-    generateRow(textRow3);
+    generateRow(rows[0]);
+    generateRow(rows[1]);
+    generateRow(rows[2]);
     inputField.value = '';
     clearInterval(timer);
     timeLeft = maxTime;
@@ -141,11 +147,14 @@ function weeDoo(){
     
 }
 
-generateRow(textRow1);
-generateRow(textRow2);
-generateRow(textRow3);
+generateRow(rows[0]);
+generateRow(rows[1]);
+generateRow(rows[2]);
 
-inputField.addEventListener('input', () => {initTyping(textRow1)});
+inputField.addEventListener('input', () => {
+    initTyping()
+});
+
 
 restart.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
@@ -158,3 +167,4 @@ restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
 });
+
