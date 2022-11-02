@@ -17,9 +17,10 @@ let corrects = 0;
 let wpm = 0;
 let isTyping = false;
 let charIndex = 0;
+let currentRow = 0;
 
 /**
- * generates a paragraph of text 
+ * generates a list of random words.
  * */
 function generateRandomWord (){
     let text = '';
@@ -51,12 +52,16 @@ function generateRow(row) {
     
 }
 
+
+
 /**
  * Counts correct/incorrect input and keeps track of words per minute.
  */
 function initTyping() {
+    let currentRow = 0
+    let rowLength = rows[currentRow].querySelectorAll('span').length
     let characters = textArea.querySelectorAll('span')
-    let typedChar = inputField.value.split('')[charIndex];
+    let typedChar = inputField.value[charIndex]
 
     if (typedChar == null) {
         charIndex--;
@@ -73,23 +78,21 @@ function initTyping() {
             characters[charIndex].classList.add('incorrect');
         }
     charIndex++;
-    if (charIndex == rows[0].querySelectorAll('span').length) {appendRow()}
-    document.querySelector('h1').innerHTML = charIndex
+    if (charIndex == rowLength){appendRow()}
+    currentRow++
 }
-
-
 
 /**
  * Removes top row and appends a bottom row.
  * 
  */
 function appendRow(){
-    textArea.removeChild(rows[0]);
+    textArea.removeChild(rows[currentRow]);
     let newRow = document.createElement('p');
     textArea.appendChild(newRow);
     generateRow(newRow);
     charIndex = 0;
-    initTyping()
+    inputField.value = ''
 }   
 
     characters.forEach(function(span) {
