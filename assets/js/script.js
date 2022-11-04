@@ -17,7 +17,7 @@ let corrects = 0;
 let wpm = 0;
 let isTyping = false;
 let charIndex = 0;
-let currentRow = 0;
+let currentRow = 0
 
 /**
  * generates a list of random words.
@@ -53,14 +53,18 @@ function generateRow(row) {
 }
 
 
-
 /**
  * Counts correct/incorrect input and keeps track of words per minute.
  */
 function initTyping() {
-    let rowLength = rows[currentRow].querySelectorAll('span').length
+    let rowLength = rows[0].querySelectorAll('span').length
     let characters = textArea.querySelectorAll('span')
     let typedChar = inputField.value[charIndex]
+
+    if(isTyping == false){
+        timer = setInterval(initTimer, 1500);
+        isTyping = true;
+    }
 
     if (typedChar == null) {
         charIndex--;
@@ -77,23 +81,23 @@ function initTyping() {
             characters[charIndex].classList.add('incorrect');
         }
     charIndex++;
-    if (charIndex == rowLength){appendRow()}
-    document.querySelector('h1').innerHTML = currentRow
-    if (currentRow == 3) {currentRow = 0}
+    if (charIndex == rowLength){
+        appendRow()
+    };
 }
 
 /**
  * Removes top row and appends a bottom row.
- * 
  */
 function appendRow(){
-    textArea.removeChild(rows[currentRow]);
+    textArea.removeChild(rows[0]);
     let newRow = document.createElement('p');
     textArea.appendChild(newRow);
     generateRow(newRow);
     charIndex = 0;
-    inputField.value = ''
-    currentRow += 1;
+    inputField.value = '';
+    rows = document.querySelectorAll('.text-area p');
+    rows[0].querySelectorAll('span')[0].classList.add('active')
 }   
 
     characters.forEach((span) => {
@@ -112,11 +116,6 @@ function appendRow(){
  */
 function initTimer(){
 
-    if(isTyping == false){
-        timer = setInterval(initTimer, 1500);
-        isTyping = true;
-    }  
-
     if(timeLeft > 0) {
         timeLeft--;
         timeTag.innerText = timeLeft;
@@ -130,7 +129,10 @@ function initTimer(){
  * generates a new paragraph on the page and resets all varables as well as enables
  * input field again
  */
-function weeDoo(){    
+function weeDoo(){
+    rows[0].value = ''
+    rows[1].value = ''   
+    rows[2].value = ''       
     generateRow(rows[0]);
     generateRow(rows[1]);
     generateRow(rows[2]);
@@ -170,4 +172,4 @@ restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
 });
-
+rows[0].querySelectorAll('span')[0].classList.add('active')
