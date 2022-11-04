@@ -58,7 +58,6 @@ function generateRow(row) {
  * Counts correct/incorrect input and keeps track of words per minute.
  */
 function initTyping() {
-    let currentRow = 0
     let rowLength = rows[currentRow].querySelectorAll('span').length
     let characters = textArea.querySelectorAll('span')
     let typedChar = inputField.value[charIndex]
@@ -79,7 +78,8 @@ function initTyping() {
         }
     charIndex++;
     if (charIndex == rowLength){appendRow()}
-    currentRow++
+    document.querySelector('h1').innerHTML = currentRow
+    if (currentRow == 3) {currentRow = 0}
 }
 
 /**
@@ -93,9 +93,10 @@ function appendRow(){
     generateRow(newRow);
     charIndex = 0;
     inputField.value = ''
+    currentRow += 1;
 }   
 
-    characters.forEach(function(span) {
+    characters.forEach((span) => {
         span.classList.remove('active');
     });
     characters[charIndex].scrollIntoView()
@@ -103,7 +104,6 @@ function appendRow(){
 
     wpm = Math.round(((corrects) / 5) * 1.3);
     wpmTag.innerText = wpm; 
-    
 }
 
 /**
