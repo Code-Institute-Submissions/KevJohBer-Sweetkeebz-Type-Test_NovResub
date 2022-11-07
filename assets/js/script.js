@@ -1,11 +1,11 @@
-let rows = document.querySelectorAll('.text-area p')
+let rows = document.querySelectorAll('.text-area p');
 let inputField = document.querySelector('.text-area .input-field');
 let mistakeTag = document.querySelector('.incorrect span');
 let correctTag = document.querySelector('.correct span');
 let timeTag = document.querySelector('.time');
 let wpmTag = document.querySelector('.wpm span');
 let restart = document.querySelector('button');
-let textArea = document.querySelector('.text-area')
+let textArea = document.querySelector('.text-area');
 
 document.querySelector('.time').textContent = '30';
 
@@ -35,7 +35,7 @@ function generateRandomWord (){
  * Takes in randomized text and turns the letters into spans.
  */
 function generateRow(row) {
-    row.innerHTML = ''
+    row.innerHTML = '';
     let paragraph = generateRandomWord();
     paragraph.split('').forEach(function(character) {
         let textSpan = document.createElement('span');
@@ -48,8 +48,7 @@ function generateRow(row) {
     });
     row.addEventListener('click', function() {
         inputField.focus();
-    });
-    
+    });   
 }
 
 
@@ -57,9 +56,9 @@ function generateRow(row) {
  * Counts correct/incorrect input and keeps track of words per minute.
  */
 function initTyping() {
-    let rowLength = rows[0].querySelectorAll('span').length
-    let characters = textArea.querySelectorAll('span')
-    let typedChar = inputField.value[charIndex]
+    let rowLength = rows[0].querySelectorAll('span').length;
+    let characters = textArea.querySelectorAll('span');
+    let typedChar = inputField.value[charIndex];
 
     if(isTyping == false){
         timer = setInterval(initTimer, 1500);
@@ -82,7 +81,7 @@ function initTyping() {
         }
     charIndex++;
     if (charIndex == rowLength){
-        appendRow()
+        appendRow();
     };
 }
 
@@ -97,13 +96,12 @@ function appendRow(){
     charIndex = 0;
     inputField.value = '';
     rows = document.querySelectorAll('.text-area p');
-    rows[0].querySelectorAll('span')[0].classList.add('active')
 }   
 
     characters.forEach((span) => {
         span.classList.remove('active');
     });
-    characters[charIndex].scrollIntoView()
+    characters[charIndex].scrollIntoView();
     characters[charIndex].classList.add('active');
 
     wpm = Math.round(((corrects) / 5) * 1.3);
@@ -122,6 +120,7 @@ function initTimer(){
     } else {
         clearInterval(timer);
         inputField.disabled = true;
+        textArea.setAttribute('style', '-webkit-filter: blur(3px)')
     }
 }
 
@@ -130,9 +129,10 @@ function initTimer(){
  * input field again
  */
 function weeDoo(){
-    rows[0].value = ''
-    rows[1].value = ''   
-    rows[2].value = ''       
+    textArea.setAttribute('style', '-webkit-filter: blur(0px)')
+    rows[0].value = '';
+    rows[1].value = '';   
+    rows[2].value = '';       
     generateRow(rows[0]);
     generateRow(rows[1]);
     generateRow(rows[2]);
@@ -149,7 +149,6 @@ function weeDoo(){
     wpmTag.innerText = 0;
     correctTag.innerText = 0;
     inputField.disabled = false;
-    
 }
 
 generateRow(rows[0]);
@@ -157,9 +156,8 @@ generateRow(rows[1]);
 generateRow(rows[2]);
 
 inputField.addEventListener('input', () => {
-    initTyping()
+    initTyping();
 });
-
 
 restart.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
@@ -172,4 +170,10 @@ restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
 });
-rows[0].querySelectorAll('span')[0].classList.add('active')
+rows[0].querySelectorAll('span')[0].classList.add('active');
+
+for (let row in rows) {
+    row.style.color = 'Blue'
+}
+
+
