@@ -17,7 +17,6 @@ let corrects = 0;
 let wpm = 0;
 let isTyping = false;
 let charIndex = 0;
-let currentRow = 0
 
 /**
  * generates a list of random words.
@@ -82,7 +81,7 @@ function initTyping() {
     charIndex++;
     if (charIndex == rowLength){
         appendRow();
-    };
+    }
 }
 
 /**
@@ -101,7 +100,6 @@ function appendRow(){
     characters.forEach((span) => {
         span.classList.remove('active');
     });
-    characters[charIndex].scrollIntoView();
     characters[charIndex].classList.add('active');
 
     wpm = Math.round(((corrects) / 5) * 1.3);
@@ -120,7 +118,7 @@ function initTimer(){
     } else {
         clearInterval(timer);
         inputField.disabled = true;
-        textArea.setAttribute('style', '-webkit-filter: blur(3px)')
+        textArea.setAttribute('style', '-webkit-filter: blur(3px)');
     }
 }
 
@@ -129,7 +127,7 @@ function initTimer(){
  * input field again
  */
 function weeDoo(){
-    textArea.setAttribute('style', '-webkit-filter: blur(0px)')
+    textArea.setAttribute('style', '-webkit-filter: blur(0px)');
     rows[0].value = '';
     rows[1].value = '';   
     rows[2].value = '';       
@@ -171,9 +169,3 @@ restart.addEventListener('click', () => {
     inputField.focus();
 });
 rows[0].querySelectorAll('span')[0].classList.add('active');
-
-for (let row in rows) {
-    row.style.color = 'Blue'
-}
-
-

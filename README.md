@@ -26,13 +26,23 @@ Below the timer and restart section, you can see three symbols. First to the lef
 
 ## Testing
 
+The website has been tested on Chrome and Microsoft edge without any issues.
+
 ### Validator testing
 * HTML 
-    * The website HTML passed the official W3C validator
+    * The website HTML passed the official W3C validator without any errors
 * CSS
-    * CSS passed the jigsaw validator
+    * CSS passed the jigsaw validator without any errors
 * JavaScript
     * JS code passed the JShint validator. It does not like the 'let' keyword however.
+        * Metrics
+        * There are 13 functions in this file.
+
+        * Function with the largest signature take 1 arguments, while the median is 0.
+
+        * Largest function has 25 statements in it, while the median is 3.
+
+        * The most complex function has a cyclomatic complexity value of 5 while the median is 1
 
 ## Unfixed bugs
 
