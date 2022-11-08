@@ -6,6 +6,7 @@ let timeTag = document.querySelector('.time');
 let wpmTag = document.querySelector('.wpm span');
 let restart = document.querySelector('button');
 let textArea = document.querySelector('.text-area');
+let caps = document.querySelector('#caps-lock');
 
 document.querySelector('.time').textContent = '30';
 
@@ -153,7 +154,12 @@ generateRow(rows[0]);
 generateRow(rows[1]);
 generateRow(rows[2]);
 
-inputField.addEventListener('input', () => {
+caps.addEventListener('keyup', (e)=> {
+    if (e.keyCode === 20){
+        caps.style.opacity = 100%;
+    }})
+
+    inputField.addEventListener('input', () => {
     initTyping();
 });
 
@@ -169,3 +175,4 @@ restart.addEventListener('click', () => {
     inputField.focus();
 });
 rows[0].querySelectorAll('span')[0].classList.add('active');
+

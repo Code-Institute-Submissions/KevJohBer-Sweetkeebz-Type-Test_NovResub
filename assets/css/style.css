@@ -125,3 +125,19 @@ li p {
     color: #c5b29a;
     border-radius: 3px;
 }
+
+#caps-lock {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.7rem;
+    color: #c5b29a;
+    margin: 0;
+}
+
+#caps-lock p {
+    background-color: #4a4a4a;
+    width: 250px;
+    border-radius: 2px;
+}

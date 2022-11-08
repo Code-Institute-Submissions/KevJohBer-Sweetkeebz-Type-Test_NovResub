@@ -8,25 +8,29 @@ This website, as the name suggests, is a typing test. It measures how many words
 
 ### Typing area
 
-The first thing you will see on the page is the large paragraph of 100 randomly selected words that pops up at the center of the screen. When you type the words out, the characters you type changes color bisque if they are correct and red underlined if they are incorrect.
+The first thing you will see on the page is 3 rows of randomly selected words that pops up at the center of the screen. When you type the words out, the characters you type changes color bisque if they are correct and red underlined if they are incorrect. The letter you are currently on is also highlighted with a bisque background to indicate which letter you are supposed to type.
 
 ![](assets/images/paragraph-typetest.jpg)
 
 ### Timer and restart
 
-Below the paragraph, you can see the number 30 aswell as a circular arrow. The number 30 is a timer that counts down to 0 as soon as you begin typing. As soon as the timer reaches 0, the user will be unable to type and the final result of the test will be displayed below. The circular arrow is a restart button. It is clickable or you could press alt + tab in order to restart. When restarted, the page will load a new paragraph of text and the timer will wait for you to begin typing again.
+Below the paragraph, you can see the number 30 aswell as a circular arrow. The number 30 is a timer that counts down to 0 as soon as you begin typing. When the timer reaches 0, the user will be unable to type and the final result of the test will be displayed below. The circular arrow is a restart button. You can either click it or press tab + enter to restart. When restarted, the page will load 3 new rows of text and the timer will wait for you to begin typing again.
 
 ![](assets/images/timeandrestart.jpg)
 
 ### Results
 
-Below the timer and restart section, you can see three symbols. First to the left is a check mark and represents the number of correct keystrokes that you entered. In the middle is an x symbol. This represents the amount of incorrect keystrokes that you have entered. To the far right, it says WPM, this stands for words per minute. This measures how fast you type. It does this by taking your number of correct keystrokes and dividing it by 5 and normalizing the result to a minute (since the test is 30s).
+Below the timer and restart section, you can see three symbols. First to the left is a check mark and represents the number of correct keystrokes that you entered. In the middle is an x symbol. This represents the amount of incorrect keystrokes that you have entered. To the far right, it says WPM, which is an acronym for Words Per Minute. This measures how fast you type. It does this by taking your number of correct keystrokes and dividing it by 5 and normalizing the result to a minute (since the test is 30s).
 
 ![](assets/images/resultarea.jpg)
 
 ## Testing
 
-The website has been tested on Chrome and Microsoft edge without any issues.
+The website has been tested on Chrome, Safari and Microsoft edge without any issues. 
+
+When the time is up, the main text gets blurred out. This does not work with browsers like Firefox or Opera as it is done using webkit.
+
+The website has been tested on mobile devices aswell without any issues.
 
 ### Validator testing
 * HTML 
@@ -46,8 +50,7 @@ The website has been tested on Chrome and Microsoft edge without any issues.
 
 ## Unfixed bugs
 
-* When the page loads the first character does not get highlighted
-* The page does not scroll to the current character which makes it difficult for mobile users to complete the test
+* When the appendRow function is called, the first character on the new row does not get highlighted, which might confuse the user as it is not clear where the user is.
 
 ## Deployment
 
@@ -59,7 +62,7 @@ The website has been tested on Chrome and Microsoft edge without any issues.
 The live link can be found here: https://kevjohber.github.io/Sweetkeebz-Type-Test/
 ## Credits
 
-* Making the paragraph responsive and react to keypresses aswell as checking correct and incorrect input was taken from [Typing Speed Test Game in HTML CSS & JavaScript](https://www.youtube.com/watch?v=Hg80AjDNnJk)
+* The code to make the characters react to keypresses and timer was based on [Typing Speed Test Game in HTML CSS & JavaScript](https://www.youtube.com/watch?v=Hg80AjDNnJk)
 
 * The design was Inspired by [Monkeytype](https://monkeytype.com/)
 
