@@ -126,7 +126,7 @@ li p {
     border-radius: 3px;
 }
 
-#caps-lock {
+.caps-lock {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -136,7 +136,7 @@ li p {
     margin: 0;
 }
 
-#caps-lock p {
+.caps-lock p {
     background-color: #4a4a4a;
     width: 250px;
     border-radius: 2px;

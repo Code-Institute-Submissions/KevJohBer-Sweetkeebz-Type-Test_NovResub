@@ -6,7 +6,7 @@ let timeTag = document.querySelector('.time');
 let wpmTag = document.querySelector('.wpm span');
 let restart = document.querySelector('button');
 let textArea = document.querySelector('.text-area');
-let caps = document.querySelector('#caps-lock');
+let caps = document.querySelector('.caps-lock');
 
 document.querySelector('.time').textContent = '30';
 
@@ -83,6 +83,7 @@ function initTyping() {
     if (charIndex == rowLength){
         appendRow();
     }
+    
 }
 
 /**
@@ -154,13 +155,16 @@ generateRow(rows[0]);
 generateRow(rows[1]);
 generateRow(rows[2]);
 
-caps.addEventListener('keyup', (e)=> {
-    if (e.keyCode === 20){
-        caps.style.opacity = 100%;
-    }})
-
-    inputField.addEventListener('input', () => {
+inputField.addEventListener('input', () => {
     initTyping();
+});
+
+document.addEventListener('keydown', (e)=> {
+    if (e.getModifierState('CapsLock')) {
+        caps.style.display = 'flex'
+    } else {
+        caps.style.display ='none'
+    }
 });
 
 restart.addEventListener('keydown', (e) => {
@@ -174,5 +178,5 @@ restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
 });
-rows[0].querySelectorAll('span')[0].classList.add('active');
 
+rows[0].querySelectorAll('span')[0].classList.add('active');
