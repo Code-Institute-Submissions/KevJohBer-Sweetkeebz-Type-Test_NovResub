@@ -2,7 +2,7 @@
 
 This website, as the name suggests, is a typing test. It measures how many words per minute (WPM) you type. It also tracks the number of keystrokes that are correct aswell as the number of keystrokes which are incorrect. This website is perfect for anyone who would like to polish up their touchtyping skills or for anyone who just wants to stimulate their hands. 
 
-![Typing test on multiple devices](assets/images/Multiple-devices.jpg)
+![Typing test on multiple devices](assets/images/multiple-devices.jpg)
 
 ## Features
 

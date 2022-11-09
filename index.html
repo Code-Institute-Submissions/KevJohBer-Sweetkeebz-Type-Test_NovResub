@@ -16,31 +16,40 @@
         <h1>SweetKeebz Typing Test</h1>
     </header>
     <div class = 'text-area'>
+        <!--hidden inupt field where the user is actually typing-->
         <input type="text" class="input-field">
+        <!--paragraphs of random text-->
         <p class='paragraph1'></p>
         <p class='paragraph2'></p>
         <p class='paragraph3'></p>
     </div>
     <div class = 'ui'>
+        <!--shows time left-->
         <p class="time"></p>
+        <!--restart button-->
         <button><i class="fa-solid fa-arrows-rotate"></i></button>
     </div>
+    <!--displays score-->
     <div id="result-area">
         <ul>
+            <!--shows number of correct keystrokes-->
             <li class="correct">
                 <p><i class="fa-solid fa-check"></i></p>
                 <span>0</span>
             </li>
+            <!--shows number of incorrect keystrokes-->
             <li class="incorrect">
                 <p><i class="fa-solid fa-x"></i></p>
                 <span>0</span>
             </li>
+            <!--shows the words per minute score-->
             <li class="wpm">
                 <p>WPM:</p>
                 <span>0</span>
             </li>
         </ul>
     </div>
+    <!-- caps lock warning, only visible when caps lock is on-->
     <div class="caps-lock" style="display : none">
         <p>Caps Lock ON</p>
     </div>
