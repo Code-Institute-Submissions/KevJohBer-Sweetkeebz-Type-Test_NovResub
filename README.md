@@ -33,9 +33,13 @@ The website checks if caps lock is on and alerts the user as this can interefere
 
 The website has been tested on Chrome, Safari and Microsoft edge without any issues. 
 
-When the time is up, the main text gets blurred out. This does not work with browsers like Firefox or Opera as it is done using webkit.
+Firefox and Opera does not support webkit so the text wont blur when the time is up.
 
-The website has been tested on mobile devices aswell without any issues.
+The website has been tested for responsiveness using devtools device toolbar and mobile devices
+
+I have tested other typing tests such as monkeytype and 10fastfingers to make sure that the words per minute results are consistent and accurate to the user.
+
+![](assets/images/lighthousetest.jpg)
 
 ### Validator testing
 * HTML 
