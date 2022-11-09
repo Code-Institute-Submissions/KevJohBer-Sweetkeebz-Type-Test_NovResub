@@ -7,6 +7,7 @@ let wpmTag = document.querySelector('.wpm span');
 let restart = document.querySelector('button');
 let textArea = document.querySelector('.text-area');
 let caps = document.querySelector('.caps-lock');
+let colorTheme = document.querySelector('.change-color-theme i')
 
 document.querySelector('.time').textContent = '30';
 
@@ -16,6 +17,8 @@ let corrects = 0;
 let wpm = 0;
 let isTyping = false;
 let charIndex = 0;
+let colorThemes = ['color-one', 'color-two', 'color-three'];
+let currentTheme = 0
 
 /**
  * generates a list of random words.
@@ -180,5 +183,11 @@ restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
 });
+
+colorTheme.addEventListener('click', ()=> {
+    currentTheme++
+    if (currentTheme == 3) {currentTheme = 0} 
+    document.querySelector('.color-themes').href = 'assets/css/color-themes/' + colorThemes[currentTheme] + '.css';
+})
 
 rows[0].querySelectorAll('span')[0].classList.add('active');

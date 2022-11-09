@@ -1,9 +1,8 @@
 /*general*/
 
 body {
-    background: #c5b29a;
+    padding: 10% 0;
     text-align: center;
-    color: #4a4a4a;
 }
 
 /*header*/
@@ -34,21 +33,14 @@ header h1 {
     width: 100%;
     font-family: 'Roboto Mono', monospace;
     font-size: 1.7rem;
-    color: #4a4a4a;
     margin: 0;
 }
 
-.correct {
-    color: bisque;
-}
-
 .incorrect {
-    color: red;
     text-decoration: underline;
 }
 
 .active {
-    background: bisque;
     border-radius: 2px;
 }
 
@@ -80,7 +72,6 @@ ul {
 
 #result-area li{
     width: 30%;
-    color: #4a4a4a;
     font-size: 2rem;
     font-family: 'Roboto Mono', monospace;
     text-decoration: none;
@@ -112,17 +103,13 @@ li p {
 
 .ui button:hover {
     font-size: 32px;
-    background-color: #4a4a4a;
     border: none;
-    color: #c5b29a;
     border-radius: 3px;
 }
 
 .ui button:focus {
     font-size: 32px;
-    background-color: #4a4a4a;
     border-style: none;
-    color: #c5b29a;
     border-radius: 3px;
 }
 
@@ -132,12 +119,20 @@ li p {
     width: 100%;
     font-family: 'Roboto Mono', monospace;
     font-size: 1.7rem;
-    color: #c5b29a;
     margin: 0;
 }
 
 .caps-lock p {
-    background-color: #4a4a4a;
     width: 250px;
     border-radius: 2px;
+}
+
+.change-color-theme {
+    font-size: 15px;
+    transition: 0.3s
+}
+
+.change-color-theme:hover {
+    font-size: 25px;
+    cursor: pointer;
 }

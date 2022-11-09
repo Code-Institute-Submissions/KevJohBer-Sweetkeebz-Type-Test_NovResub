@@ -1,0 +1,47 @@
+body {
+    background: rgb(88, 42, 4);
+    color: rgb(184, 102, 3);
+}
+
+.text-area p {
+    color: rgb(184, 102, 3);
+}
+
+.correct {
+    color: bisque;
+}
+
+.incorrect {
+    color: rgb(134, 0, 34);
+}
+
+.active {
+    background: bisque;
+}
+
+#result-area li{
+    color: rgb(184, 102, 3);
+}
+
+.ui button {
+    background-color: rgb(88, 42, 4);
+    color: rgb(184, 102, 3);
+}
+
+.ui button:hover {
+    background-color: rgb(184, 102, 3);
+    color: rgb(88, 42, 4);
+}
+
+.ui button:focus {
+    background-color: rgb(184, 102, 3);
+    color: rgb(88, 42, 4);
+}
+
+.caps-lock {
+    color: rgb(88, 42, 4);
+}
+
+.caps-lock p {
+    background-color: rgb(184, 102, 3);
+}

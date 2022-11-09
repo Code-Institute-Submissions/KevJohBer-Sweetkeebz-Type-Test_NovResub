@@ -29,6 +29,12 @@ Below the timer and restart section, you can see three symbols. First to the lef
 The website checks if caps lock is on and alerts the user as this can interefere with the accuracy of the test if not used properly.
 
 ![](assets/images/capslockon.jpg)
+
+### Change themes
+
+at the bottom of the UI we see a clickable pallette icon. If you click it, the website will cycle between 3 unique color themes, first one being inspired by sand, second one being inspired by pizza and the last one being inspired by wood.
+
+![](assets/images/theme-change-button.jpg)
 ## Testing
 
 The website has been tested on Chrome, Safari and Microsoft edge without any issues. 

@@ -1,0 +1,47 @@
+body {
+    background: #c5b29a;
+    color: #4a4a4a;
+}
+
+.text-area p {
+    color: #4a4a4a;
+}
+
+.correct {
+    color: bisque;
+}
+
+.incorrect {
+    color: red;
+}
+
+.active {
+    background: bisque;
+}
+
+#result-area li{
+    color: #4a4a4a;
+}
+
+.ui button {
+    background-color: #c5b29a;
+    color: #4a4a4a;
+}
+
+.ui button:hover {
+    background-color: #4a4a4a;
+    color: #c5b29a;
+}
+
+.ui button:focus {
+    background-color: #4a4a4a;
+    color: #c5b29a;
+}
+
+.caps-lock {
+    color: #c5b29a;
+}
+
+.caps-lock p {
+    background-color: #4a4a4a;
+}
