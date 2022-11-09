@@ -10,7 +10,7 @@ This website, as the name suggests, is a typing test. It measures how many words
 
 The first thing you will see on the page is 3 rows of randomly selected words that pops up at the center of the screen. When you type the words out, the characters you type changes color bisque if they are correct and red underlined if they are incorrect. The letter you are currently on is also highlighted with a bisque background to indicate which letter you are supposed to type.
 
-![](assets/images/paragraph-typetest.jpg)
+![](assets/images/paragraph.jpg)
 
 ### Timer and restart
 
@@ -24,6 +24,11 @@ Below the timer and restart section, you can see three symbols. First to the lef
 
 ![](assets/images/resultarea.jpg)
 
+### Caps lock warning
+
+The website checks if caps lock is on and alerts the user as this can interefere with the accuracy of the test if not used properly.
+
+![](assets/images/capslockon.jpg)
 ## Testing
 
 The website has been tested on Chrome, Safari and Microsoft edge without any issues. 

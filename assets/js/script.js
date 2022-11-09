@@ -10,9 +10,7 @@ let caps = document.querySelector('.caps-lock');
 
 document.querySelector('.time').textContent = '30';
 
-let timer,
-maxTime = 30;
-let timeLeft = maxTime;
+let timeLeft = 30;
 let mistakes = 0;
 let corrects = 0;
 let wpm = 0;
@@ -79,11 +77,20 @@ function initTyping() {
             mistakeTag.innerText = mistakes;
             characters[charIndex].classList.add('incorrect');
         }
+        
     charIndex++;
     if (charIndex == rowLength){
         appendRow();
     }
     
+}
+    characters.forEach((span) => {
+        span.classList.remove('active');
+    });
+    characters[charIndex].classList.add('active');
+
+    wpm = Math.round(((corrects) / 5) * 1.3);
+    wpmTag.innerText = wpm; 
 }
 
 /**
@@ -97,16 +104,7 @@ function appendRow(){
     charIndex = 0;
     inputField.value = '';
     rows = document.querySelectorAll('.text-area p');
-}   
-
-    characters.forEach((span) => {
-        span.classList.remove('active');
-    });
-    characters[charIndex].classList.add('active');
-
-    wpm = Math.round(((corrects) / 5) * 1.3);
-    wpmTag.innerText = wpm; 
-}
+}  
 
 /**
  * decrements the time left variable and disables the input field
@@ -138,7 +136,7 @@ function weeDoo(){
     generateRow(rows[2]);
     inputField.value = '';
     clearInterval(timer);
-    timeLeft = maxTime;
+    timeLeft = 30;
     charIndex = 0;
     mistakes = 0;
     corrects = 0;
@@ -149,6 +147,7 @@ function weeDoo(){
     wpmTag.innerText = 0;
     correctTag.innerText = 0;
     inputField.disabled = false;
+    rows[0].querySelectorAll('span')[0].classList.add('active');
 }
 
 generateRow(rows[0]);
@@ -159,6 +158,7 @@ inputField.addEventListener('input', () => {
     initTyping();
 });
 
+/*caps lock warning*/
 document.addEventListener('keydown', (e)=> {
     if (e.getModifierState('CapsLock')) {
         caps.style.display = 'flex'
@@ -167,6 +167,7 @@ document.addEventListener('keydown', (e)=> {
     }
 });
 
+/* tab + enter shortcut for restart*/
 restart.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
     weeDoo();
@@ -174,6 +175,7 @@ restart.addEventListener('keydown', (e) => {
     inputField.focus();
     }
 });
+/*makes restart button clickable*/
 restart.addEventListener('click', () => {
     weeDoo();
     inputField.focus();
