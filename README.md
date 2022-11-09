@@ -55,13 +55,13 @@ I have tested other typing tests such as monkeytype and 10fastfingers to make su
 * JavaScript
     * JS code passed the JShint validator. It does not like the 'let' keyword however.
         * Metrics
-        * There are 13 functions in this file.
+        * There are 15 functions in this file.
 
         * Function with the largest signature take 1 arguments, while the median is 0.
 
-        * Largest function has 25 statements in it, while the median is 3.
+        * Largest function has 23 statements in it, while the median is 3.
 
-        * The most complex function has a cyclomatic complexity value of 5 while the median is 1
+        * The most complex function has a cyclomatic complexity value of 5 while the median is 1.
 
 ## Unfixed bugs
 

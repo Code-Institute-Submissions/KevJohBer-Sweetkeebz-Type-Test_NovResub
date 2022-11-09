@@ -7,7 +7,7 @@ let wpmTag = document.querySelector('.wpm span');
 let restart = document.querySelector('button');
 let textArea = document.querySelector('.text-area');
 let caps = document.querySelector('.caps-lock');
-let colorTheme = document.querySelector('.change-color-theme i')
+let colorTheme = document.querySelector('.change-color-theme i');
 
 document.querySelector('.time').textContent = '30';
 
@@ -18,7 +18,7 @@ let wpm = 0;
 let isTyping = false;
 let charIndex = 0;
 let colorThemes = ['color-one', 'color-two', 'color-three'];
-let currentTheme = 0
+let currentTheme = 0;
 
 /**
  * generates a list of random words.
@@ -119,7 +119,6 @@ function initTimer(){
         timeLeft--;
         timeTag.innerText = timeLeft;
     } else {
-        clearInterval(timer);
         inputField.disabled = true;
         textArea.setAttribute('style', '-webkit-filter: blur(3px)');
     }
@@ -138,13 +137,13 @@ function weeDoo(){
     generateRow(rows[1]);
     generateRow(rows[2]);
     inputField.value = '';
-    clearInterval(timer);
     timeLeft = 30;
     charIndex = 0;
     mistakes = 0;
     corrects = 0;
     wpm = 0;
     isTyping = false;
+    clearInterval(timer);
     timeTag.innerHTML = timeLeft;
     mistakeTag.innerText = mistakes;
     wpmTag.innerText = 0;
@@ -164,9 +163,9 @@ inputField.addEventListener('input', () => {
 /*caps lock warning*/
 document.addEventListener('keydown', (e)=> {
     if (e.getModifierState('CapsLock')) {
-        caps.style.display = 'flex'
+        caps.style.display = 'flex';
     } else {
-        caps.style.display ='none'
+        caps.style.display ='none';
     }
 });
 
@@ -185,9 +184,9 @@ restart.addEventListener('click', () => {
 });
 
 colorTheme.addEventListener('click', ()=> {
-    currentTheme++
-    if (currentTheme == 3) {currentTheme = 0} 
+    currentTheme++;
+    if (currentTheme == 3) {currentTheme = 0;} 
     document.querySelector('.color-themes').href = 'assets/css/color-themes/' + colorThemes[currentTheme] + '.css';
-})
+});
 
 rows[0].querySelectorAll('span')[0].classList.add('active');
