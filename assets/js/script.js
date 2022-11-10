@@ -81,11 +81,8 @@ function initTyping() {
             mistakeTag.innerText = mistakes;
             characters[charIndex].classList.add('incorrect');
         }
-        
+            
     charIndex++;
-    if (charIndex == rowLength){
-        appendRow();
-    }
     
 }
     characters.forEach((span) => {
@@ -94,8 +91,11 @@ function initTyping() {
     characters[charIndex].classList.add('active');
 
     wpm = Math.round(((corrects) / 5) * 1.3);
-    wpmTag.innerText = wpm; 
-    document.querySelector('h1').innerHTML = charIndex;
+    wpmTag.innerText = wpm;
+    
+    if (charIndex == rowLength){
+        appendRow();
+    }      
 }
 
 /**

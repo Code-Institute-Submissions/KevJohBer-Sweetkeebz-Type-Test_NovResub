@@ -65,7 +65,13 @@ I have tested other typing tests such as monkeytype and 10fastfingers to make su
 
 ## Unfixed bugs
 
-* When the appendRow function is called, the first character on the new row does not get highlighted, which might confuse the user as it is not clear where the user is.
+* There are currently no known bugs
+
+## Fixed bugs
+
+* Each time a finished row was removed, 1 point was added to the mistake counter. This was because each time a row was removed, the program would change the input value to '' (empty string), which the program then interpreted as a mistake as there is no '' span. I solved this by simply subtracting one mistake point each time a row is removed.
+
+* Each time a finished row was removed, the first character would not get highlighted. The problem was that the code that adds the highlight, is also the one that removes it. I solved this problem by moving the code that adds and removes the highlight below the code that added the new row. This way the highlight is added after the row is complete so it is not prompted to remove the highlight.
 
 ## Deployment
 
