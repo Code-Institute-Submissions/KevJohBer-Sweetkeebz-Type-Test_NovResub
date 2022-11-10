@@ -11,6 +11,7 @@ let colorTheme = document.querySelector('.change-color-theme i');
 
 document.querySelector('.time').textContent = '30';
 
+
 let timeLeft = 30;
 let mistakes = 0;
 let corrects = 0;
@@ -94,6 +95,7 @@ function initTyping() {
 
     wpm = Math.round(((corrects) / 5) * 1.3);
     wpmTag.innerText = wpm; 
+    document.querySelector('h1').innerHTML = charIndex;
 }
 
 /**
@@ -107,6 +109,9 @@ function appendRow(){
     charIndex = 0;
     inputField.value = '';
     rows = document.querySelectorAll('.text-area p');
+    rows[0].querySelectorAll('span')[charIndex].classList.add('active');
+    mistakes -= 1;
+    mistakeTag.innerHTML = mistakes
 }  
 
 /**
